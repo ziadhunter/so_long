@@ -1,0 +1,28 @@
+/* XPM */
+static char *Skel_idle_right[] = {
+/* columns rows colors chars-per-pixel */
+"96 16 6 1 ",
+"  c None",
+". c #14182E",
+"X c #AD2F45",
+"o c #686F99",
+"O c #A3A7C2",
+"+ c #DFE0E8",
+/* pixels */
+"     ......                                                          ......          ......     ",
+"    .OO++++.         ......                                         .OO++++.        .OO++++.    ",
+"   .OO++++++.       .OO++++.         ......          ......        .OO++++++.      .OO++++++.   ",
+"   .OOOO++++.      .OO++++++.       .OO++++.        .OO++++.       .OOOO++++.      .OOOO++++.   ",
+"   .OOOOOO++.      .OOOO++++.      .OO++++++.      .OO++++++.      .OOOOOO++.      .OOOOOO++.   ",
+"   .OooO+.O+.      .OOOOOO++.      .OOOO++++.      .OOOO++++.      .OooO+.O+.      .OooO+.O+.   ",
+"   .oOOo+..O.      .OooO+.O+.      .OOOOOO++.      .OOOOOO++.      .oOOo+..O.      .oOOo+..O.   ",
+"   .oOOOO.X+.      .oOOo+..O.      .OooO+.O+.      .OooO+.O+.      .oOOOO.X+.      .oOOOO.X+.   ",
+"    .ooOOO+o.      .oOOOO.X+.      .oOOo+..O.      .oOOo+..O.       .ooOOO+o.       .ooOOO+o.   ",
+"     .o.++.+.       .ooOOO+o.      .oOOOO.X+.      .oOOOO.X+.        .o.++.+.        .o.++.+.   ",
+"     .Oo....         .o.++.+.       .ooOOO+o.       .ooOOO+o.        .Oo....         .Oo....    ",
+"     .+.O+.          .Oo....         .o.++.+.        .o.++.+.        .+.O+.          .+.O+.     ",
+"     .+O.O.          .+O.O.          .Oo....         .Oo....         .+.OO.          .+O.O.     ",
+"     .++.+.          .++.+.          .+O.O.          .+O.O.          .+O.+.          .++.+.     ",
+"      ..oo.           ..oo.          .++.+.          .++.+.          .++.o.           ..oo.     ",
+"        ..              ..            ..oo.           ..oo.           ....              ..      "
+};

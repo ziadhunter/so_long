@@ -104,5 +104,6 @@ char	**ft_split(char *s, char c)
 	if (!p)
 		return (NULL);
 	p[i] = NULL;
+	free(s);
 	return (p);
 }
