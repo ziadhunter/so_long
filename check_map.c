@@ -61,15 +61,15 @@ void	take_position(char c, int x, int y, t_map **map_info)
 {
 	if (c == 'E')
 	{
-		(*map_info)->e_post_x = x;
-		(*map_info)->e_post_y = y;
+		(*map_info)->ex_post_x = x;
+		(*map_info)->ex_post_y = y;
 		(*map_info)->exit++;
 	}
 	else if (c == 'P')
 	{
-		(*map_info)->player->x_pl = x;
-		(*map_info)->player->y_pl = y;
-		((*map_info)->count_player)++;
+		(*map_info)->p_post_x = x;
+		(*map_info)->p_post_y = y;
+		(*map_info)->count_player++;
 	}
 }
 

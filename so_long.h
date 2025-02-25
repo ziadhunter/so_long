@@ -24,46 +24,35 @@
 // #include <X11/Xlib.h>
 // #include <mlx.h>
 
-typedef struct s_player
-{
-    void *add_pl;
-    int x_pl;
-    int y_pl;
-}t_player;
 
 typedef struct s_map
 {
+    char **map;
+    int height;
+    int width;
     int collectible;
     int c_collected;
     int exit;
-    int e_post_x;
-    int e_post_y;
-    t_player *player;
+    int ex_post_x;
+    int ex_post_y;
+    //int e_post_x;
+    //int e_post_y;
     int count_player;
     int p_post_x;
     int p_post_y;
-    char **map;
-    int y;
-    int x;
 } t_map;
-
-typedef struct s_enemy
-{
-    
-} t_enemy;
-
 
 
 typedef struct mlx
 {
-    void *mlx;
+    void *init;
     void *win;
 }   t_mlx;
 
 typedef struct	s_img{
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
     int     width;
@@ -74,19 +63,26 @@ typedef struct s_allimg
 {
     t_img background;
     t_img wall;
-    t_img pl_idl_img;
-    t_img pl_down_img;
-    t_img pl_up_img;
-    t_img pl_left_img;
-    t_img pl_right_img;
-    t_img en_down_img;
-    t_img en_up_img;
-    t_img en_left_img;
-    t_img en_right_img;
+    t_img pl_idle;
+    t_img pl_down;
+    t_img pl_up;
+    t_img pl_left;
+    t_img pl_right;
+    // t_img en_down;
+    // t_img en_up;
+    // t_img en_left;
+    // t_img en_right;
     t_img exit;
     t_img coint;
     t_img coint_effect;
 } t_all_img;
+
+typedef struct s_data
+{
+    t_mlx *mlx;
+    t_map *map;
+    t_all_img *imgs;
+} t_data;
 
 typedef struct s_path
 {
@@ -95,6 +91,8 @@ typedef struct s_path
 } t_path;
 
 /* FUNCTIONS */
+void load_imgs(t_mlx *data, t_all_img *imgs);
+
 void the_real_work(t_map *map_info);
 void the_size_of_map(t_map **map_info);
 

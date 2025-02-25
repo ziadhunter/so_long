@@ -1,4 +1,4 @@
-CC = cc
+CC = cc -fsanitize=address -g3
 CFLAGS = -Wall -Werror -Wextra
 CMLX = -lmlx -lXext -lX11 -lm
 SRC = so_long.c check_map.c flood_fill.c map_check_outils.c side_outils.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c split.c achi_l3ibat.c the_real_work.c
@@ -9,7 +9,7 @@ OBJECT = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) $(CMLX) -o $(NAME)
+	$(CC) $(SRC) $(CMLX) -o $(NAME)
 
 # bonus: $(SRC_BONUS) $(LIBFT)
 # 	$(CC) $(CFLAGS) $(SRC_BONUS) $(LIBFT) $(CMLX) -o $(NAME)
