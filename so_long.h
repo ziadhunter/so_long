@@ -24,6 +24,36 @@
 // #include <X11/Xlib.h>
 // #include <mlx.h>
 
+typedef struct s_coin
+{
+    int x;
+    int y;
+    int collected;
+} t_coin;
+
+typedef struct s_player
+{
+    int x;
+    int y;
+    int real_x;
+    int real_y;
+    int wich_picture;
+    int movement;
+} t_player;
+
+typedef struct s_enemy
+{
+    int x;
+    int y;
+    int new_x;
+    int new_y;
+} t_enemy;
+
+typedef struct s_exit
+{
+    int x;
+    int y;
+} t_exit;
 
 typedef struct s_map
 {
@@ -31,15 +61,14 @@ typedef struct s_map
     int height;
     int width;
     int collectible;
-    int c_collected;
-    int exit;
-    int ex_post_x;
-    int ex_post_y;
-    //int e_post_x;
-    //int e_post_y;
+    t_coin *coins;
     int count_player;
     int p_post_x;
     int p_post_y;
+    t_player player;
+    int count_exit;
+    t_exit exit;
+    t_enemy *enemy;
 } t_map;
 
 
@@ -91,6 +120,7 @@ typedef struct s_path
 } t_path;
 
 /* FUNCTIONS */
+void get_info(t_map *map_info);
 void load_imgs(t_mlx *data, t_all_img *imgs);
 
 void the_real_work(t_map *map_info);

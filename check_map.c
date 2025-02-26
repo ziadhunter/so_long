@@ -60,11 +60,7 @@ char	**is_rectangular(char *name, int i)
 void	take_position(char c, int x, int y, t_map **map_info)
 {
 	if (c == 'E')
-	{
-		(*map_info)->ex_post_x = x;
-		(*map_info)->ex_post_y = y;
-		(*map_info)->exit++;
-	}
+		(*map_info)->count_exit++;
 	else if (c == 'P')
 	{
 		(*map_info)->p_post_x = x;
@@ -76,7 +72,7 @@ void	take_position(char c, int x, int y, t_map **map_info)
 void	map_component(char **lines, t_map **map_info)
 {
 	int (x), (y);
-	(*map_info)->exit = 0;
+	(*map_info)->count_exit = 0;
 	(*map_info)->count_player = 0;
 	(*map_info)->collectible = 0;
 	y = 0;
@@ -93,7 +89,7 @@ void	map_component(char **lines, t_map **map_info)
 		}
 		y++;
 	}
-	if ((*map_info)->count_player != 1 || (*map_info)->exit != 1)
+	if ((*map_info)->count_player != 1 || (*map_info)->count_exit != 1)
 	{
 		free_double_string(lines);
 		free(*map_info);

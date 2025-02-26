@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+
 int main(int ac, char **av)
 {
     t_map *map_info;
@@ -8,6 +9,7 @@ int main(int ac, char **av)
     {
         check_map(av[1], &map_info);
         the_size_of_map(&map_info);
+        get_info(map_info);
         the_real_work(map_info);
     }
     return (0);

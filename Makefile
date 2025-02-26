@@ -1,7 +1,7 @@
-CC = cc -fsanitize=address -g3
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 CMLX = -lmlx -lXext -lX11 -lm
-SRC = so_long.c check_map.c flood_fill.c map_check_outils.c side_outils.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c split.c achi_l3ibat.c the_real_work.c
+SRC = so_long.c check_map.c flood_fill.c map_check_outils.c side_outils.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c split.c achi_l3ibat.c the_real_work.c  get_info.c
 NAME = so_long
 OBJECT = $(SRC:%.c=%.o)
 # //OBJECT = $(SRC_BONUS:%.c=%.o )
