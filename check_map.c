@@ -89,7 +89,7 @@ void	map_component(char **lines, t_map **map_info)
 		}
 		y++;
 	}
-	if ((*map_info)->count_player != 1 || (*map_info)->count_exit != 1)
+	if ((*map_info)->count_player != 1 || (*map_info)->count_exit != 1 || (*map_info)->collectible == 0)
 	{
 		free_double_string(lines);
 		free(*map_info);

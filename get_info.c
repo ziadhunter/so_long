@@ -17,11 +17,14 @@ void initialize_player(t_map *map_info)
                 map_info->player.y = j;
                 map_info->player.real_x = i * 64;
                 map_info->player.real_y = j * 64;
+                map_info->player.new_x = i;
+                map_info->player.new_y = j;
             }
             i++;
         }
         j++;
     }
+    map_info->keys = 'i';
     map_info->player.movement = 0;
     map_info->player.wich_picture = 0;
 }
@@ -72,6 +75,7 @@ void initialize_enemy(t_map *map_info)
         j++;
     }
 }
+
 void initialize_coins(t_map *map_info)
 {
     int i;
@@ -80,17 +84,20 @@ void initialize_coins(t_map *map_info)
 
     count = 0;
     j = 0;
-    while(map_info->map[j])
+    map_info->coins = malloc(sizeof(t_coin) * map_info->collectible);
+    if (!map_info->coins)
+        return;
+    while (map_info->map[j])
     {
         i = 0;
         while (map_info->map[j][i])
         {
-            if (map_info->map[j][i] == 'C')
+            if (map_info->map[j][i] == 'C' && count < map_info->collectible)
             {
-                map_info->coins[count].x = i;
-                map_info->coins[count].y = j;
-                map_info->coins[count].collected = 0;
-                count++;
+
+                    map_info->coins[count].x = i;
+                    map_info->coins[count].y = j;
+                    count++;
             }
             i++;
         }
@@ -99,10 +106,12 @@ void initialize_coins(t_map *map_info)
 }
 
 
+
 void get_info(t_map *map_info)
 {
+    map_info->collected = 0;
     initialize_player(map_info);
     initialize_exit(map_info);
     // initialize_enemy(map_info);
-    // initialize_coins(map_info);
+    initialize_coins(map_info);
 }

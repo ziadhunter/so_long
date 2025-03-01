@@ -21,14 +21,15 @@
 #include <limits.h>
 #include "get_next_line/get_next_line.h"
 #include "mlx/mlx.h"
+#include <stdbool.h>
 // #include <X11/Xlib.h>
 // #include <mlx.h>
+
 
 typedef struct s_coin
 {
     int x;
     int y;
-    int collected;
 } t_coin;
 
 typedef struct s_player
@@ -37,6 +38,8 @@ typedef struct s_player
     int y;
     int real_x;
     int real_y;
+    int new_x;
+    int new_y;
     int wich_picture;
     int movement;
 } t_player;
@@ -61,6 +64,7 @@ typedef struct s_map
     int height;
     int width;
     int collectible;
+    int collected;
     t_coin *coins;
     int count_player;
     int p_post_x;
@@ -69,6 +73,7 @@ typedef struct s_map
     int count_exit;
     t_exit exit;
     t_enemy *enemy;
+    char keys;
 } t_map;
 
 
@@ -120,6 +125,15 @@ typedef struct s_path
 } t_path;
 
 /* FUNCTIONS */
+void print_player(t_data *data, t_img *new_image, int c, int x, int y);
+bool is_wall(t_data *data, int x, int y);
+ void put_static_map(t_data *data, t_img new_image);
+void free_all_data_and_exit(t_data *data, char *str);
+void player_state_left(t_data *data);
+void player_state_right(t_data *data);
+void player_state_down(t_data *data);
+void player_state_up(t_data *data);
+int key_handler(int keycode, t_data *data);
 void get_info(t_map *map_info);
 void load_imgs(t_mlx *data, t_all_img *imgs);
 
