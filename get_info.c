@@ -15,8 +15,6 @@ void initialize_player(t_map *map_info)
             {
                 map_info->player.x = i;
                 map_info->player.y = j;
-                map_info->player.real_x = i * 64;
-                map_info->player.real_y = j * 64;
                 map_info->player.new_x = i;
                 map_info->player.new_y = j;
             }
@@ -26,7 +24,6 @@ void initialize_player(t_map *map_info)
     }
     map_info->keys = 'i';
     map_info->player.movement = 0;
-    map_info->player.wich_picture = 0;
 }
 void initialize_exit(t_map *map_info)
 {

@@ -48,24 +48,7 @@
 // }
 
 
-bool is_wall(t_data *data, int x, int y)
-{
-    if (data->map->map[y][x] == '1')
-        return (true);
-    else if (data->map->map[y][x] == 'E' && data->map->collectible == data->map->collected)
-    {
-        free_all_data_and_exit(data, "You win\n");
-        exit(0);
-    }
-    else
-    if (data->map->map[y][x] == 'C')
-    {
-        data->map->collected++;
-        //find_wich_coint(data, x, y);
-        data->map->map[y][x] = '0';
-    }
-    return (false);
-}
+
 
 int key_handler(int keycode, t_data *data)
 {

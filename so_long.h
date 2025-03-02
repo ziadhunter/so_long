@@ -26,6 +26,17 @@
 // #include <mlx.h>
 
 
+#define TILE_SIZE 64
+#define ANIMATION_FRAMES 6
+#define STEP_SIZE 10
+
+
+#define KEY_A 97
+#define KEY_D 100
+#define KEY_S 115
+#define KEY_W 119
+#define KEY_ESC 65307
+
 typedef struct s_coin
 {
     int x;
@@ -36,11 +47,8 @@ typedef struct s_player
 {
     int x;
     int y;
-    int real_x;
-    int real_y;
     int new_x;
     int new_y;
-    int wich_picture;
     int movement;
 } t_player;
 
@@ -114,6 +122,7 @@ typedef struct s_allimg
 typedef struct s_data
 {
     t_mlx *mlx;
+    t_img new_image;
     t_map *map;
     t_all_img *imgs;
 } t_data;
@@ -125,32 +134,21 @@ typedef struct s_path
 } t_path;
 
 /* FUNCTIONS */
-void print_player(t_data *data, t_img *new_image, int c, int x, int y);
+void print_player(t_data *data);
 bool is_wall(t_data *data, int x, int y);
- void put_static_map(t_data *data, t_img new_image);
+ void put_static_map(t_data *data);
 void free_all_data_and_exit(t_data *data, char *str);
-void player_state_left(t_data *data);
-void player_state_right(t_data *data);
-void player_state_down(t_data *data);
-void player_state_up(t_data *data);
 int key_handler(int keycode, t_data *data);
 void get_info(t_map *map_info);
 void load_imgs(t_mlx *data, t_all_img *imgs);
-
 void the_real_work(t_map *map_info);
 void the_size_of_map(t_map **map_info);
-
-int	count_word(char const *s, char c, int *size);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	**free_array(char **ptr, int i);
 char	**allocation(char **p, char *s, char c, int size);
 char	**ft_split(char *s, char c);
 void	empty_line(char *s, char *text);
-char	*ft_substr(char *s, unsigned int start, size_t len);
 int	count_word(char const *s, char c, int *size);
-char	**free_array(char **ptr, int i);
-char	**allocation(char **p, char *s, char c, int size);
-char	**ft_split(char *s, char c);
 void flood_fill(char **str, int x, int y, t_path *check);
 void free_double_string(char **lines);
 void check_components(char *str, char **lines);
