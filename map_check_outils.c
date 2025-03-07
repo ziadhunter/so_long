@@ -45,7 +45,8 @@ void	check_components(char *str, char **lines)
 	while (str[i])
 	{
 		c = str[i++];
-		if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
+		if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P'
+			&& c != 'X')
 		{
 			free_double_string(lines);
 			eror_exit(4);

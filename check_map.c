@@ -39,12 +39,12 @@ char	**is_rectangular(char *name, int i)
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 		eror_exit(5);
-    line = get_next_line(fd);
+	line = get_next_line(fd);
 	while (line != NULL)
 	{
 		empty_line(line, text);
 		text = ft_strjoin(text, line);
-        line = get_next_line(fd);
+		line = get_next_line(fd);
 	}
 	lines = ft_split(text, '\n');
 	if (lines)
@@ -89,7 +89,8 @@ void	map_component(char **lines, t_map **map_info)
 		}
 		y++;
 	}
-	if ((*map_info)->count_player != 1 || (*map_info)->count_exit != 1 || (*map_info)->collectible == 0)
+	if ((*map_info)->count_player != 1 || (*map_info)->count_exit != 1
+		|| (*map_info)->collectible == 0)
 	{
 		free_double_string(lines);
 		free(*map_info);
@@ -103,7 +104,6 @@ void	check_map(char *file_name, t_map **map_info)
 	char	**lines2;
 	t_path	*check;
 
-	lines = NULL;
 	if (!file_name)
 		eror_exit(0);
 	valide_name(file_name);
@@ -117,7 +117,9 @@ void	check_map(char *file_name, t_map **map_info)
 	check = malloc(sizeof(t_path));
 	check->C = 0;
 	check->E = 0;
-	flood_fill(lines2, (*map_info)->p_post_x, (*map_info)->p_post_y, check);
+	(*map_info)->enemy_count = 0;
+	flood_fill(lines2, (*map_info)->p_post_x, (*map_info)->p_post_y, check,
+		*map_info);
 	if (check->C != (*map_info)->collectible || check->E != 1)
 		invalid_path(lines, lines2, check, *map_info);
 	free(check);

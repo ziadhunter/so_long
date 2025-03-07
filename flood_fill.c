@@ -12,21 +12,23 @@
 
 #include "so_long.h"
 
-void	flood_fill(char **str, int x, int y, t_path *check)
+void	flood_fill(char **str, int x, int y, t_path *check, t_map *map_info)
 {
 	if (x < 0 || y < 0 || !str[y] || !str[y][x])
 		return ;
 	if (str[y][x] == '1' || str[y][x] == '#')
 		return ;
-	if (str[y][x] == 'C')
+	if (str[y][x] == 'X')
+		map_info->enemy_count++;
+	else if (str[y][x] == 'C')
 		check->C++;
 	else if (str[y][x] == 'E')
 		check->E++;
 	str[y][x] = '#';
-	flood_fill(str, x + 1, y, check);
-	flood_fill(str, x - 1, y, check);
-	flood_fill(str, x, y + 1, check);
-	flood_fill(str, x, y - 1, check);
+	flood_fill(str, x + 1, y, check, map_info);
+	flood_fill(str, x - 1, y, check, map_info);
+	flood_fill(str, x, y + 1, check, map_info);
+	flood_fill(str, x, y - 1, check, map_info);
 }
 
 void	eror_exit(int i)
