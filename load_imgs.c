@@ -1,9 +1,9 @@
 #include "so_long.h"
 
-void check_all_imgs(t_all_img imgs)
-{
-    if (!)
-}
+// void check_all_imgs(t_all_img imgs)
+// {
+//     if (!)
+// }
 
 void    load_player_imgs(t_mlx *mlx, t_all_img *imgs)
 {
@@ -85,5 +85,5 @@ void	load_imgs(t_mlx *mlx, t_all_img *imgs)
 			&imgs->coint.line_length, &imgs->coint.endian);
     load_player_imgs(mlx, imgs);
     load_imgs_three(mlx, imgs);
-    check_all_imgs(imgs);
+    //check_all_imgs(imgs);
 }

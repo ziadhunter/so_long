@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/07 06:52:59 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:44:53 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_enemy
 	int			y;
 	int			new_x;
 	int			new_y;
+	int			real_x;
+	int			real_y;
 	char		key;
 	int			c;
 	int			step;
@@ -138,7 +140,46 @@ typedef struct s_path
 }				t_path;
 
 /* FUNCTIONS */
-void the_real_work(t_map *map_info);
+void	free_imgs(t_data *data);
+void	free_all_data_and_exit(t_data *data, char *str);
+int	pick_pixel(t_img *data, int x, int y);
+void	put_pixel(t_img *data, int x, int y, int color);
+void	put_mini_image_to_window(t_img *dst, t_img *src, int x_dst, int y_dst,
+		int x_src);
+void reset_en_cord(t_data *data, int count, int *one, int *c);
+void	move_en_left(t_data *data, int count);
+void	move_en_right(t_data *data, int count);
+int	check_place(t_data *data, int count, int i);
+void	enemy(t_data *data, int count);
+void	render_enemy(t_data *data);
+int is_enemy(t_data *data);
+void check_position(t_data *data);
+void reset_cordonites(t_data *data);
+void	move_pl_left(t_data *data);
+void	move_pl_right(t_data *data);
+void	move_pl_up(t_data *data);
+void	move_pl_down(t_data *data);
+void	render_player(t_data *data);
+void	render_effect(t_data *data);
+void	render_coint(t_data *data);
+void	render_exit(t_data *data);
+void	render_static_map(t_data *data);
+int	the_animation(t_data *data);
+bool	is_wall(t_data *data, int x, int y);
+void	next_move(t_data *data, char c, int x, int y);
+int	key_press(int keycode, t_data *data);
+void	init_all(t_map *map_info, t_data *data, t_all_img *imgs, t_mlx *mlx);
+void check_all_imgs(t_all_img imgs);
+void    load_player_imgs(t_mlx *mlx, t_all_img *imgs);
+void load_imgs_three(t_mlx *mlx, t_all_img *imgs);
+void	load_imgs(t_mlx *mlx, t_all_img *imgs);
+void			the_real_work(t_map *map_info);
+void	initializ_all(t_map *map_info, int count, int i, int j);
+void	initialize_player(t_map *map_info);
+void	initialize_exit(t_map *map_info);
+void	initialize_enemy(t_map *map_info);
+void	initialize_coins(t_map *map_info);
+void	get_info(t_map *map_info);
 void			the_size_of_map(t_map **map_info);
 char			*ft_substr(char *s, unsigned int start, size_t len);
 char			**free_array(char **ptr, int i);

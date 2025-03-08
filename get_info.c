@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfarouk <zfarouk@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:26:09 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/07 06:26:10 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:14:08 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	initialize_enemy(t_map *map_info)
 		{
 			if (map_info->map[j][i] == 'X')
 			{
-				initialaz_all(map_info, count, i, j);
+				initializ_all(map_info, count, i, j);
 				count++;
 			}
 			i++;

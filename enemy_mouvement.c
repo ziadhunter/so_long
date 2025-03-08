@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_mouvement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfarouk <zfarouk@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:20:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/07 06:20:42 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:46:51 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void increment_variable(int *step, int *c)
+{
+	*step += 10;
+	(*c)++;
+}
+
+void reset(t_data *data, int count)
+{
+	data->map->enemy[count].real_x = data->map->enemy[count].new_x;
+	data->map->enemy[count].real_y = data->map->enemy[count].new_y;
+}
 
 void	move_en_left(t_data *data, int count)
 {
@@ -34,10 +46,9 @@ void	move_en_left(t_data *data, int count)
 	put_mini_image_to_window(&data->new_image, &data->imgs->en_left, (x * 64)
 		- *step, y * 64, (*c % 4) * 60);
 	if (*one % 50 == 0)
-	{
-		*step += 10;
-		(*c)++;
-	}
+		increment_variable(step, c);
+	if (*step >=30)
+		reset(data, count);
 	(*one)++;
 }
 
@@ -63,10 +74,9 @@ void	move_en_right(t_data *data, int count)
 	put_mini_image_to_window(&data->new_image, &data->imgs->en_right, (x * 64)
 		+ *step, y * 64, (*c % 4) * 60);
 	if (*one % 50 == 0)
-	{
-		*step += 10;
-		(*c)++;
-	}
+		increment_variable(step, c);
+	if (*step >=30)
+		reset(data, count);
 	(*one)++;
 }
 

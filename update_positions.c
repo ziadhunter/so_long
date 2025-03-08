@@ -2,15 +2,15 @@
 
 void reset_en_cord(t_data *data, int count, int *one, int *c)
 {
-    *one = 0;
     int x;
     int y;
 
+    *one = 0;
     *c = 0;
     x = data->map->player.x;
     y = data->map->player.y;
     data->map->enemy[count].x =  data->map->enemy[count].new_x;
-    if (data->map->enemy[count].x == x && data->map->enemy[count].y == y)
+    if (data->map->enemy[count].new_x == x && data->map->enemy[count].new_y == y)
         free_all_data_and_exit(data, "malek 7mar???");
     data->map->enemy[count].movement = 0;
 }
@@ -26,7 +26,7 @@ int is_enemy(t_data *data)
     count = 0;
     while (count < data->map->enemy_count)
     {
-        if (x == data->map->enemy[count].x && y == data->map->enemy[count].y)
+        if (x == data->map->enemy[count].real_x && y == data->map->enemy[count].real_y)
             return (1);
         count++;
     }

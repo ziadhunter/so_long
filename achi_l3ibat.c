@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   achi_l3ibat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfarouk <zfarouk@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:31:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/07 06:31:40 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:47:55 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	intialize_all(t_map *map_info, int count, int i, int j)
+void	initializ_all(t_map *map_info, int count, int i, int j)
 {
 	map_info->enemy[count].x = i;
 	map_info->enemy[count].y = j;
 	map_info->enemy[count].new_x = i;
 	map_info->enemy[count].new_y = j;
+	map_info->enemy[count].real_x = i;
+	map_info->enemy[count].real_y = j;
 	map_info->map[j][i] = '0';
 	map_info->enemy[count].key = 'l';
 	map_info->enemy[count].movement = 0;
