@@ -59,7 +59,10 @@
   "functionHeaderExtension.headerFilePath": "/home/zfarouk/Desktop/so_long/so_long.h",
   "files.associations": {
     "so_long.h": "c",
-    "mlx.h": "c"
+    "mlx.h": "c",
+    "get_next_line.h": "c",
+    "ft_printf.h": "c",
+    "stdio.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
