@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/11 00:53:03 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 02:32:02 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ void			free_double_string(char **lines);
 void			check_components(char *str, char **lines);
 void			all_walls(char *str, char **lines);
 void			check_walls(char **lines);
-void			qeror_exit(int i);
+void			eror_exit(int i);
 int				ft_strcmp(char *str, char *cmp, int len);
 void			valide_name(char *file_name);
 int				ft_strlen(char *str);
