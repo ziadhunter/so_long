@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:00:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 22:03:10 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 03:18:32 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,13 @@ void	check_position(t_data *data)
 
 void	reset_cordonites(t_data *data)
 {
-	if (data->map->keys == 'l' && !is_wall(data, data->map->player.x - 1,
-			data->map->player.y))
+	if (data->map->keys == 'l')
 		data->map->player.x--;
-	else if (data->map->keys == 'r' && !is_wall(data, data->map->player.x + 1,
-			data->map->player.y))
+	else if (data->map->keys == 'r')
 		data->map->player.x++;
-	else if (data->map->keys == 'u' && !is_wall(data, data->map->player.x,
-			data->map->player.y - 1))
+	else if (data->map->keys == 'u')
 		data->map->player.y--;
-	else if (data->map->keys == 'd' && !is_wall(data, data->map->player.x,
-			data->map->player.y + 1))
+	else if (data->map->keys == 'd')
 		data->map->player.y++;
 	ft_printf("number of movements: %d\n", ++data->map->player.number);
 	check_position(data);

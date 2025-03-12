@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:18 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 21:42:03 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 03:33:13 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,39 @@ void	init_all(t_map *map_info, t_data *data, t_all_img *imgs, t_mlx *mlx)
 	data->mlx = mlx;
 }
 
-bool	is_wall(t_data *data, int x, int y)
+void is_there_enemy(t_data *data, int x, int y, char c)
+{
+	int i;
+
+	i = 0;
+	while (i < data->map->enemy_count)
+	{
+		if (data->map->player.y == data->map->enemy[i].y && y == data->map->enemy[i].y)
+		{
+			if (data->map->enemy[i].x == x && data->map->enemy[i].y == y)
+			{
+				data->map->player.new_x = x;
+				data->map->player.new_y = y;
+				if (c == 'l')
+					move_pl_left(data);
+				else if (c == 'r')
+					move_pl_right(data);
+				else if (c == 'u')
+					move_pl_up(data);
+				else if (c == 'd')
+					move_pl_down(data);
+				printf("chi haje\n");
+				free_all_data_and_exit(data, "you lose :(, GOOD LUCK NEXT TIME !!");
+			}
+		}
+		i++;
+	}
+}
+bool	is_wall(t_data *data, int x, int y, char c)
 {
 	if (data->map->map[y][x] == '1')
 		return (true);
+	is_there_enemy(data, x, y, c);
 	return (false);
 }
 
@@ -41,16 +70,16 @@ int	key_press(int key, t_data *data)
 	if (key == ESC)
 		free_all_data_and_exit(data, "you exit the game!!\n");
 	if ((key == 'a' || key == LEFT) && !is_wall(data, data->map->player.x - 1,
-			data->map->player.y))
+			data->map->player.y, 'l'))
 		next_move(data, 'l', -1, 0);
 	else if ((key == 'd' || key == RIGHT) && !is_wall(data,
-			data->map->player.x + 1, data->map->player.y))
+			data->map->player.x + 1, data->map->player.y, 'r'))
 		next_move(data, 'r', 1, 0);
 	else if ((key == 's' || key == DOWN) && !is_wall(data, data->map->player.x,
-			data->map->player.y + 1))
+			data->map->player.y + 1, 'd'))
 		next_move(data, 'd', 0, 1);
 	else if ((key == 'w' || key == UP) && !is_wall(data, data->map->player.x,
-			data->map->player.y - 1))
+			data->map->player.y - 1, 'u'))
 		next_move(data, 'u', 0, -1);
 	return (0);
 }

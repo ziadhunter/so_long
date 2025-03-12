@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/12 02:32:02 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 03:17:27 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void			render_coint(t_data *data);
 void			render_exit(t_data *data);
 void			render_static_map(t_data *data);
 int				the_animation(t_data *data);
-bool			is_wall(t_data *data, int x, int y);
+bool			is_wall(t_data *data, int x, int y, char c);
 void			next_move(t_data *data, char c, int x, int y);
 int				key_press(int keycode, t_data *data);
 void			xpm_to_image(t_mlx *mlx, t_all_img *imgs);

@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:39 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 21:52:54 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 03:31:32 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	free_imgs(t_mlx *mlx, t_all_img *imgs)
 
 void	free_all_data_and_exit(t_data *data, char *str)
 {
+	printf("test\n");
 	free_double_string(data->map->map);
 	free(data->map->coins);
 	free_imgs(data->mlx, data->imgs);

@@ -1,5 +1,5 @@
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CC = cc -g3
+CFLAGS = -Wall -Werror -Wextra 
 CMLX = -lmlx -lXext -lX11 -lm
 SRC = src/side_function.c      src/free_function.c     src/player_mouvement.c  src/so_long.c\
 		src/check_map.c        src/get_info.c          src/put_the_image.c     src/split.c\

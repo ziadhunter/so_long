@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 07:01:24 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/09 20:04:31 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 03:49:10 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	put_mini_image_to_window(t_img *dst, t_img *src, int x_dst, int y_dst,
 	y = 0;
 	j = 0;
 	while (y < 64)
-	{
+	{q
 		x = x_src;
 		i = 0;
 		while (x < 64 + x_src)
