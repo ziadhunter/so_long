@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/12 02:32:02 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 17:44:54 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_enemy
 	int			new_y;
 	int			real_x;
 	int			real_y;
+	int			old_x;
 	char		key;
 	int			c;
 	int			step;

@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:31:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/09 21:51:11 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 17:46:10 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	initializ_all(t_map *map_info, int count, int i, int j)
 {
 	map_info->enemy[count].x = i;
 	map_info->enemy[count].y = j;
+	map_info->enemy[count].old_x = i;
 	map_info->enemy[count].new_x = i;
 	map_info->enemy[count].new_y = j;
 	map_info->enemy[count].real_x = i;
