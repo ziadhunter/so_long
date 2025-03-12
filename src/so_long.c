@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 07:00:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/09 16:46:04 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/12 02:38:44 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
+
+
+
+
+		
 		check_map(av[1], &map_info);
 		the_size_of_map(&map_info);
 		get_info(map_info);
