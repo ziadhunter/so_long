@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:41:07 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/13 16:48:48 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:43:56 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,6 @@ void	check_map(char *file_name, t_map **map_info)
 	check = malloc(sizeof(t_path));
 	check->c = 0;
 	check->e = 0;
-	(*map_info)->enemy_count = 0;
 	flood_fill(lines2, (*map_info)->p_post_x, (*map_info)->p_post_y, check,
 		*map_info);
 	if (check->c != (*map_info)->collectible || check->e != 1)

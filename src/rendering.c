@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:11:14 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:34:26 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 02:00:52 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ int	the_animation(t_data *data)
 	render_coint(data);
 	render_effect(data);
 	render_player(data);
-	render_enemy(data);
 	mlx_put_image_to_window(data->mlx->init, data->mlx->win, new_image.img, 0,
 		0);
 	render_moves(data);

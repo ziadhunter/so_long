@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check_outils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfarouk <zfarouk@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:41:30 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/02/16 16:41:35 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:42:04 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void	check_components(char *str, char **lines)
 	while (str[i])
 	{
 		c = str[i++];
-		if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P'
-			&& c != 'X')
+		if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
 		{
 			free_double_string(lines);
 			eror_exit(4);

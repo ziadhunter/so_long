@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:00:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/13 17:01:48 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 02:37:18 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	check_position(t_data *data)
 {
 	if (data->map->map[data->map->player.y][data->map->player.x] == 'E'
 		&& data->map->collectible == data->map->collected)
-		free_all_data_and_exit(data, "You win\n");
+		free_all_data_and_exit(data, "You win");
 	else if (data->map->map[data->map->player.y][data->map->player.x] == 'C')
 	{
 		data->map->collected++;
