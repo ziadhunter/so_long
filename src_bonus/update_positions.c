@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:00:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 02:02:39 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 15:32:33 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	reset_cordonites(t_data *data)
 	else if (data->map->keys == 'd' && !is_wall(data, data->map->player.x,
 			data->map->player.y + 1))
 		data->map->player.y++;
+	data->map->player.number++;
 	check_position(data);
 	data->map->player.movement = 0;
 	data->map->keys = 'i';
