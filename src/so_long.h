@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/12 17:44:54 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/13 22:38:55 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "../get_next_line/get_next_line.h"
+# include "../printf/ft_printf.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <limits.h>
@@ -21,7 +22,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../printf/ft_printf.h"
+# include <string.h>
 
 # define LEFT 65361
 # define RIGHT 65363
@@ -139,7 +140,9 @@ typedef struct s_path
 }				t_path;
 
 /* FUNCTIONS */
-
+char			*ft_itoa(int n);
+void			render_moves(t_data *data);
+void			fix_the_bug(t_data *data);
 int				close_window(t_data *data);
 void			free_imgs(t_mlx *mlx, t_all_img *imgs);
 void			free_all_data_and_exit(t_data *data, char *str);
@@ -148,12 +151,12 @@ void			put_pixel(t_img *data, int x, int y, int color);
 void			put_mini_image_to_window(t_img *dst, t_img *src, int x_dst,
 					int y_dst, int x_src);
 void			reset_en_cord(t_data *data, int count, int *one, int *c);
-void	reset(t_data *data, int count);
-void	increment_variable(int *step, int *c);
+void			reset(t_data *data, int count);
+void			increment_variable(int *step, int *c);
 void			move_en_left(t_data *data, int count);
 void			move_en_right(t_data *data, int count);
 int				check_place(t_data *data, int count, int i);
-int	enemy_number(char **map);
+int				enemy_number(char **map);
 void			enemy(t_data *data, int count);
 void			render_enemy(t_data *data);
 int				is_enemy(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:11:14 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/11 00:30:12 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:34:26 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	render_effect(t_data *data)
 
 void	render_exit(t_data *data)
 {
-	int	i;
-	int	j;
-	static int c;
-	static int one;
+	int			i;
+	int			j;
+	static int	c;
+	static int	one;
 
 	j = 0;
 	while (data->map->map[j])
@@ -117,18 +117,6 @@ void	render_exit(t_data *data)
 	one++;
 }
 
-// void	display_moves(t_data *data)
-// {
-// 	char	*moves_str;
-// 	char	*message;
-
-// 	moves_str = itoa(data->map->player.number);
-// 	message = ft_strjoin("Moves: ", moves_str);
-// 	free(moves_str);
-// 	mlx_string_put(game->mlx, game->win, 20, 20, 0xFFFFFF, message);
-// 	free(message);
-// }
-
 int	the_animation(t_data *data)
 {
 	static unsigned int	l = 0;
@@ -145,13 +133,13 @@ int	the_animation(t_data *data)
 	data->new_image = new_image;
 	render_static_map(data);
 	render_exit(data);
-	render_coint(data); 
+	render_coint(data);
 	render_effect(data);
 	render_player(data);
 	render_enemy(data);
-	//render_moves(data);
 	mlx_put_image_to_window(data->mlx->init, data->mlx->win, new_image.img, 0,
 		0);
+	render_moves(data);
 	mlx_destroy_image(data->mlx->init, data->new_image.img);
 	l++;
 	return (0);

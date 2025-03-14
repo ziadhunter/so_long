@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:40:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/11 00:51:30 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:55:26 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,8 @@ char	**duplicate(char **lines)
 	j = 0;
 	while (lines[0][j])
 		j++;
-	if (i > 60 || j > 60)
-	{
-		eror_exit(5);
-	}
+	if (i > 33 || j > 60)
+		eror_exit(7);
 	lines2 = malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (lines[i])

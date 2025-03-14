@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:34:26 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/08 20:48:40 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:55:10 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	eror_exit(int i)
 		write(1, "file not found\n", 15);
 	else if (i == 6)
 		write(1, "map is not rectangular\n", 23);
+	else if (i == 7)
+		write(1, "map is long\n", 12);
 	exit(1);
 }
 

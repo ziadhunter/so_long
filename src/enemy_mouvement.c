@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:20:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 21:04:43 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:31:08 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	move_en_left(t_data *data, int count)
 	x = data->map->enemy[count].x;
 	put_mini_image_to_window(&data->new_image, &data->imgs->en_l, (x * 64)
 		- *step, y * 64, (*c % 4) * 60);
-	if (*one % 7 == 0)
+	if (*one % is_time_en(data) == 0)
 		increment_variable(step, c);
 	if (*step >= 30)
 		reset(data, count);
@@ -61,7 +61,7 @@ void	move_en_right(t_data *data, int count)
 	x = data->map->enemy[count].x;
 	put_mini_image_to_window(&data->new_image, &data->imgs->en_r, (x * 64)
 		+ *step, y * 64, (*c % 4) * 60);
-	if (*one % 7 == 0)
+	if (*one % is_time_en(data) == 0)
 		increment_variable(step, c);
 	if (*step >= 30)
 		reset(data, count);

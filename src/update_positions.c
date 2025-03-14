@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:00:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/12 18:10:14 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/13 17:01:48 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	reset_en_cord(t_data *data, int count, int *one, int *c)
 	data->map->enemy[count].movement = 0;
 }
 
-int	is_enemy(t_data *data)
+void	fix_the_bug(t_data *data)
 {
 	int	count;
 	int	x;
 	int	y;
-	int new_x;
-	int new_y;
+	int	new_x;
+	int	new_y;
 
 	x = data->map->player.x;
 	y = data->map->player.y;
@@ -44,11 +44,28 @@ int	is_enemy(t_data *data)
 	count = 0;
 	while (count < data->map->enemy_count)
 	{
+		if ((new_x == data->map->enemy[count].x
+				&& new_y == data->map->enemy[count].y)
+			&& (x == data->map->enemy[count].new_x
+				&& y == data->map->enemy[count].y))
+			free_all_data_and_exit(data, "you lose :(, GOOD LUCK NEXT TIME !!");
+		count++;
+	}
+}
+
+int	is_enemy(t_data *data)
+{
+	int	count;
+	int	x;
+	int	y;
+
+	x = data->map->player.x;
+	y = data->map->player.y;
+	count = 0;
+	while (count < data->map->enemy_count)
+	{
 		if (x == data->map->enemy[count].real_x
 			&& y == data->map->enemy[count].real_y)
-			return (1);
-		if ((new_x == data->map->enemy[count].old_x && new_y == data->map->enemy[count].y) && 
-			(x == data->map->enemy[count].new_x && y == data->map->enemy[count].y))
 			return (1);
 		count++;
 	}
@@ -57,9 +74,6 @@ int	is_enemy(t_data *data)
 
 void	check_position(t_data *data)
 {
-	int count;
-
-	count = 0;
 	if (data->map->map[data->map->player.y][data->map->player.x] == 'E'
 		&& data->map->collectible == data->map->collected)
 		free_all_data_and_exit(data, "You win\n");
@@ -68,13 +82,13 @@ void	check_position(t_data *data)
 		data->map->collected++;
 		data->map->map[data->map->player.y][data->map->player.x] = 'F';
 	}
-
+	else if (is_enemy(data))
+		free_all_data_and_exit(data, "you lose :(, GOOD LUCK NEXT TIME !!");
 }
 
 void	reset_cordonites(t_data *data)
 {
-	if (is_enemy(data))
-		free_all_data_and_exit(data, "you lose :(, GOOD LUCK NEXT TIME !!");
+	fix_the_bug(data);
 	if (data->map->keys == 'l' && !is_wall(data, data->map->player.x - 1,
 			data->map->player.y))
 		data->map->player.x--;
@@ -87,8 +101,8 @@ void	reset_cordonites(t_data *data)
 	else if (data->map->keys == 'd' && !is_wall(data, data->map->player.x,
 			data->map->player.y + 1))
 		data->map->player.y++;
-	check_position(data);
 	ft_printf("number of movements: %d\n", ++data->map->player.number);
+	check_position(data);
 	data->map->player.movement = 0;
 	data->map->keys = 'i';
 }

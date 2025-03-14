@@ -6,11 +6,57 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 07:01:24 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/09 20:04:31 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:35:00 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	info_num(int n, int *sign)
+{
+	int	i;
+
+	*sign = 1;
+	i = 0;
+	if (n < 0)
+	{
+		i++;
+		*sign = -1;
+	}
+	while (n != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	char	*p;
+	int		sign;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	i = info_num(n, &sign);
+	if (n < 0)
+		n *= -1;
+	p = malloc(i + 1);
+	if (!p)
+		return (NULL);
+	p[i] = '\0';
+	while (n != 0)
+	{
+		p[--i] = ((n % 10) + 48);
+		n /= 10;
+	}
+	if (sign == -1)
+		p[--i] = '-';
+	return (p);
+}
 
 int	pick_pixel(t_img *data, int x, int y)
 {

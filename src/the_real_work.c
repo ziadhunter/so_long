@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:18 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 21:42:03 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:00:25 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	next_move(t_data *data, char c, int x, int y)
 {
 	data->map->keys = c;
 	data->map->player.new_x = data->map->player.x + x;
-	data->map->player.new_x = data->map->player.y + y;
+	data->map->player.new_y = data->map->player.y + y;
 	data->map->player.movement = 1;
 }
 

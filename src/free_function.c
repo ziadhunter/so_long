@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:39 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/10 21:52:54 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:02:49 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	free_all_data_and_exit(t_data *data, char *str)
 	free(data->mlx->init);
 	free(data->mlx);
 	free(data);
-	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	exit(0);
 }

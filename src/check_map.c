@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:41:07 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/11 00:32:11 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/13 16:48:48 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	valide_name(char *file_name)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (file_name[i])
@@ -139,4 +139,3 @@ void	check_map(char *file_name, t_map **map_info)
 	free_double_string(lines2);
 	(*map_info)->map = lines;
 }
- 
