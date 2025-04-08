@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:18 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 00:00:25 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 17:43:00 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	next_move(t_data *data, char c, int x, int y)
 
 int	key_press(int key, t_data *data)
 {
-	if (data->map->player.movement == 1)
-		return (0);
 	if (key == ESC)
 		free_all_data_and_exit(data, "you exit the game!!\n");
+	if (data->map->player.movement == 1)
+		return (0);
 	if ((key == 'a' || key == LEFT) && !is_wall(data, data->map->player.x - 1,
 			data->map->player.y))
 		next_move(data, 'l', -1, 0);

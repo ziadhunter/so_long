@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:20:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:31:08 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 23:33:00 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	move_en_left(t_data *data, int count)
 	}
 	y = data->map->enemy[count].y;
 	x = data->map->enemy[count].x;
-	put_mini_image_to_window(&data->new_image, &data->imgs->en_l, (x * 64)
-		- *step, y * 64, (*c % 4) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->en_l, (t_coord){x
+		* 64 - *step, y * 64}, (*c % 4) * 60);
 	if (*one % is_time_en(data) == 0)
 		increment_variable(step, c);
 	if (*step >= 30)
@@ -59,8 +59,8 @@ void	move_en_right(t_data *data, int count)
 	}
 	y = data->map->enemy[count].y;
 	x = data->map->enemy[count].x;
-	put_mini_image_to_window(&data->new_image, &data->imgs->en_r, (x * 64)
-		+ *step, y * 64, (*c % 4) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->en_r, (t_coord){(x
+			* 64) + *step, y * 64}, (*c % 4) * 60);
 	if (*one % is_time_en(data) == 0)
 		increment_variable(step, c);
 	if (*step >= 30)
@@ -140,11 +140,11 @@ void	render_enemy(t_data *data)
 		else if (data->map->enemy[count].new_x < data->map->enemy[count].x)
 			move_en_left(data, count);
 		else if (data->map->enemy[count].key == 'r')
-			put_mini_image_to_window(&data->new_image, &data->imgs->en_r, x
-				* 64, y * 64, 60);
+			put_mini_image_to_window(&data->new_image, &data->imgs->en_r,
+				(t_coord){x * 64, y * 64}, 60);
 		else
-			put_mini_image_to_window(&data->new_image, &data->imgs->en_l, x
-				* 64, y * 64, 60);
+			put_mini_image_to_window(&data->new_image, &data->imgs->en_l,
+				(t_coord){x * 64, y * 64}, 60);
 		count++;
 	}
 	c++;

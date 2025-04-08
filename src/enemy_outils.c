@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 01:30:02 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 02:42:43 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 17:46:57 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int	is_time(t_data *data)
 {
-	if (data->map->height <= 10)
-		return (10);
+	if (data->map->height < 5)
+		return (30);
+	else if (data->map->height <= 10)
+		return (6);
 	else if (data->map->height <= 20)
 		return (3);
-	else
-		return (1);
+	return (1);
 }
 
 int	is_time_en(t_data *data)
@@ -28,8 +29,7 @@ int	is_time_en(t_data *data)
 		return (15);
 	else if (data->map->height <= 20)
 		return (7);
-	else
-		return (4);
+	return (4);
 }
 
 void	render_moves(t_data *data)

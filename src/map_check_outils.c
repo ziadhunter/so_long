@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:41:30 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:42:04 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 19:54:26 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	invalid_path(char **lines, char **lines2, t_path *check,
 	free_double_string(lines2);
 	free(check);
 	free(map_info);
-	write(1, "invalid path\n", 13);
+	write(1, "Error\ninvalid path\n", 19);
 	exit(1);
 }
 

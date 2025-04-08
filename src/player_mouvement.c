@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 06:11:26 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 02:36:07 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 23:30:52 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	move_pl_left(t_data *data)
 	}
 	x = data->map->player.x;
 	y = data->map->player.y;
-	put_mini_image_to_window(&data->new_image, &data->imgs->pl_l, x * 64
-		- step, y * 64, (c % 6) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->pl_l, (t_coord){x
+		* 64 - step, y * 64}, (c % 6) * 60);
 	if (one % is_time(data) == 0)
 	{
 		step += 10;
@@ -54,8 +54,8 @@ void	move_pl_right(t_data *data)
 	}
 	x = data->map->player.x;
 	y = data->map->player.y;
-	put_mini_image_to_window(&data->new_image, &data->imgs->pl_r, x * 64
-		+ step, y * 64, (c % 6) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->pl_r, (t_coord){x
+		* 64 + step, y * 64}, (c % 6) * 60);
 	if (one % is_time(data) == 0)
 	{
 		step += 10;
@@ -80,8 +80,8 @@ void	move_pl_up(t_data *data)
 	}
 	x = data->map->player.x;
 	y = data->map->player.y;
-	put_mini_image_to_window(&data->new_image, &data->imgs->pl_u, x * 64, y
-		* 64 - step, (c % 6) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->pl_u, (t_coord){x
+		* 64, y * 64 - step}, (c % 6) * 60);
 	if (one % is_time(data) == 0)
 	{
 		step += 10;
@@ -106,8 +106,8 @@ void	move_pl_down(t_data *data)
 	}
 	x = data->map->player.x;
 	y = data->map->player.y;
-	put_mini_image_to_window(&data->new_image, &data->imgs->pl_d, x * 64, (y
-			* 64) + step, (c % 6) * 60);
+	put_mini_image_to_window(&data->new_image, &data->imgs->pl_d, (t_coord){x
+		* 64, (y * 64) + step}, (c % 6) * 60);
 	if (one % is_time(data) == 0)
 	{
 		step += 10;
@@ -131,7 +131,8 @@ void	render_player(t_data *data)
 		move_pl_down(data);
 	else
 		put_mini_image_to_window(&data->new_image, &data->imgs->pl_i,
-			data->map->player.x * 64, data->map->player.y * 64, (c % 6) * 64);
+			(t_coord){data->map->player.x * 64, data->map->player.y * 64}, (c
+				% 6) * 64);
 	if (one % is_time(data) == 0)
 	{
 		c++;

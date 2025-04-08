@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:35:27 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:53:43 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 23:25:42 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@
 
 # define LOAD_XPM mlx_xpm_file_to_image
 # define GET_ADDR mlx_get_data_addr
+
+typedef struct s_coord
+{
+	int			x;
+	int			y;
+}				t_coord;
 
 typedef struct s_coin
 {
@@ -150,8 +156,8 @@ void			free_imgs(t_mlx *mlx, t_all_img *imgs);
 void			free_all_data_and_exit(t_data *data, char *str);
 int				pick_pixel(t_img *data, int x, int y);
 void			put_pixel(t_img *data, int x, int y, int color);
-void			put_mini_image_to_window(t_img *dst, t_img *src, int x_dst,
-					int y_dst, int x_src);
+void			put_mini_image_to_window(t_img *dst, t_img *src, t_coord coord,
+					int x_src);
 void			reset_en_cord(t_data *data, int count, int *one, int *c);
 void			reset(t_data *data, int count);
 void			increment_variable(int *step, int *c);
@@ -197,7 +203,7 @@ char			**allocation(char **p, char *s, char c, int size);
 char			**ft_split(char *s, char c);
 void			empty_line(char *s, char *text);
 int				count_word(char const *s, char c, int *size);
-void			flood_fill(char **str, int x, int y, t_path *check,
+void			flood_fill(char **str, t_coord coord, t_path *check,
 					t_map *map_info);
 void			free_double_string(char **lines);
 void			check_components(char *str, char **lines);
@@ -214,7 +220,7 @@ void			invalid_path(char **lines, char **lines2, t_path *check,
 					t_map *map_info);
 void			map_component(char **lines, t_map **map_info);
 char			*ft_strdup(char *s1);
-char			**duplicate(char **lines);
+char			**duplicate(char **lines, t_map **map_info);
 void			check_map(char *file_name, t_map **map_info);
 int				main(int ac, char **av);
 

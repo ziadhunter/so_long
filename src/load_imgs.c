@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:01:36 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/09 17:18:54 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 22:08:47 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	check_all_imgs(t_all_img *imgs, t_data *data)
 		|| !imgs->co_eff.img || !imgs->exit.img || !imgs->en_l.img
 		|| !imgs->en_r.img || !imgs->pl_i.img || !imgs->pl_d.img
 		|| !imgs->pl_u.img || !imgs->pl_l.img || !imgs->pl_r.img)
-		free_all_data_and_exit(data, "failed to load the images");
+		free_all_data_and_exit(data, "Error\nfailed to load the images");
 }
 
 void	get_addres(t_all_img *imgs)

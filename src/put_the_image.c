@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 07:01:24 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:35:00 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 23:25:21 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	put_pixel(t_img *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	put_mini_image_to_window(t_img *dst, t_img *src, int x_dst, int y_dst,
+void	put_mini_image_to_window(t_img *dst, t_img *src, t_coord coord,
 		int x_src)
 {
 	int				y;
@@ -93,7 +93,7 @@ void	put_mini_image_to_window(t_img *dst, t_img *src, int x_dst, int y_dst,
 		{
 			color = pick_pixel(src, x, y);
 			if (color != 0xFF000000 && color != 0x00FFFFFF)
-				put_pixel(dst, x_dst + i, y_dst + j, color);
+				put_pixel(dst, coord.x + i, coord.y + j, color);
 			x++;
 			i++;
 		}

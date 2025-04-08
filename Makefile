@@ -7,12 +7,12 @@ SRC = src/side_function.c      src/free_function.c     src/player_mouvement.c  s
 		src/flood_fill.c       src/map_check_outils.c  src/side_outils.c       src/update_positions.c\
 		src/enemy_outils.c     get_next_line/get_next_line.c  get_next_line/get_next_line_utils.c
 
-SRC_BONUS = src_bonus/check_map.c        src_bonus/load_imgs.c         src_bonus/side_outils.c\
-			src_bonus/enemy_mouvement.c  src_bonus/map_check_outils.c  src_bonus/so_long.c\
-			src_bonus/enemy_outils.c     src_bonus/player_mouvement.c\
-			src_bonus/flood_fill.c       src_bonus/put_the_image.c     src_bonus/split.c\
-			src_bonus/free_function.c    src_bonus/rendering.c         src_bonus/the_real_work.c\
-			src_bonus/get_info.c         src_bonus/side_function.c     src_bonus/update_positions.c\
+SRC_BONUS = src_bonus/check_map_bonus.c        src_bonus/load_imgs_bonus.c         src_bonus/side_outils_bonus.c\
+			src_bonus/enemy_mouvement_bonus.c  src_bonus/map_check_outils_bonus.c  src_bonus/so_long_bonus.c\
+			src_bonus/enemy_outils_bonus.c     src_bonus/player_mouvement_bonus.c\
+			src_bonus/flood_fill_bonus.c       src_bonus/put_the_image_bonus.c     src_bonus/split_bonus.c\
+			src_bonus/free_function_bonus.c    src_bonus/rendering_bonus.c         src_bonus/the_real_work_bonus.c\
+			src_bonus/get_info_bonus.c         src_bonus/side_function_bonus.c     src_bonus/update_positions_bonus.c\
 			get_next_line/get_next_line.c  get_next_line/get_next_line_utils.c
 
 NAME = so_long

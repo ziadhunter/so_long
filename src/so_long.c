@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 07:00:38 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/13 16:55:34 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 19:32:42 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	main(int ac, char **av)
 		the_size_of_map(&map_info);
 		get_info(map_info);
 		the_real_work(map_info);
+	}
+	else
+	{
+		ft_printf("Error\ninvalid parameters\n");
+		return (1);
 	}
 	return (0);
 }

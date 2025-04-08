@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:40:41 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 00:55:26 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 22:30:09 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_strdup(char *s1)
 	return (p);
 }
 
-char	**duplicate(char **lines)
+char	**duplicate(char **lines, t_map **map_info)
 {
 	int		i;
 	int		j;
@@ -93,7 +93,11 @@ char	**duplicate(char **lines)
 	while (lines[0][j])
 		j++;
 	if (i > 33 || j > 60)
+	{
+		free_double_string(lines);
+		free(*map_info);
 		eror_exit(7);
+	}
 	lines2 = malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (lines[i])

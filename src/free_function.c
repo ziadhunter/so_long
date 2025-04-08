@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 00:53:39 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 00:02:49 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 16:38:41 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	free_all_data_and_exit(t_data *data, char *str)
 	free(data->map->enemy);
 	free(data->map);
 	free(data->imgs);
+	if (data->new_image.img)
+		mlx_destroy_image(data->mlx->init, data->new_image.img);
 	mlx_destroy_window(data->mlx->init, data->mlx->win);
 	mlx_destroy_display(data->mlx->init);
 	free(data->mlx->init);

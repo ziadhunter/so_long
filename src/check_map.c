@@ -6,7 +6,7 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:41:07 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 01:43:56 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 22:30:34 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,12 +126,12 @@ void	check_map(char *file_name, t_map **map_info)
 	check_walls(lines);
 	*map_info = malloc(sizeof(t_map));
 	map_component(lines, map_info);
-	lines2 = duplicate(lines);
+	lines2 = duplicate(lines, map_info);
 	check = malloc(sizeof(t_path));
 	check->c = 0;
 	check->e = 0;
-	flood_fill(lines2, (*map_info)->p_post_x, (*map_info)->p_post_y, check,
-		*map_info);
+	flood_fill(lines2, (t_coord){(*map_info)->p_post_x, (*map_info)->p_post_y},
+		check, *map_info);
 	if (check->c != (*map_info)->collectible || check->e != 1)
 		invalid_path(lines, lines2, check, *map_info);
 	free(check);

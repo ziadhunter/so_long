@@ -6,31 +6,32 @@
 /*   By: zfarouk <zfarouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:34:26 by zfarouk           #+#    #+#             */
-/*   Updated: 2025/03/14 00:55:10 by zfarouk          ###   ########.fr       */
+/*   Updated: 2025/03/14 21:39:10 by zfarouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	flood_fill(char **str, int x, int y, t_path *check, t_map *map_info)
+void	flood_fill(char **str, t_coord coord, t_path *check, t_map *map_info)
 {
-	if (x < 0 || y < 0 || !str[y] || !str[y][x])
+	if (coord.x < 0 || coord.y < 0 || !str[coord.y] || !str[coord.y][coord.x])
 		return ;
-	if (str[y][x] == '1' || str[y][x] == '#')
+	if (str[coord.y][coord.x] == '1' || str[coord.y][coord.x] == '#')
 		return ;
-	else if (str[y][x] == 'C')
+	else if (str[coord.y][coord.x] == 'C')
 		check->c++;
-	else if (str[y][x] == 'E')
+	else if (str[coord.y][coord.x] == 'E')
 		check->e++;
-	str[y][x] = '#';
-	flood_fill(str, x + 1, y, check, map_info);
-	flood_fill(str, x - 1, y, check, map_info);
-	flood_fill(str, x, y + 1, check, map_info);
-	flood_fill(str, x, y - 1, check, map_info);
+	str[coord.y][coord.x] = '#';
+	flood_fill(str, (t_coord){coord.x + 1, coord.y}, check, map_info);
+	flood_fill(str, (t_coord){coord.x - 1, coord.y}, check, map_info);
+	flood_fill(str, (t_coord){coord.x, coord.y + 1}, check, map_info);
+	flood_fill(str, (t_coord){coord.x, coord.y - 1}, check, map_info);
 }
 
 void	eror_exit(int i)
 {
+	write(1, "Error\n", 6);
 	if (i == 0)
 		write(1, "Map not found\n", 14);
 	else if (i == 1)
